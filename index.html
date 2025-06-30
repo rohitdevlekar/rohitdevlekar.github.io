@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohit Dilip Devlekar - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="0%" r="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>') repeat-x;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            position: relative;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #2980b9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+
+        .objective {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .experience-item {
+            background: white;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #e74c3c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .company-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .duration {
+            color: #7f8c8d;
+            font-weight: bold;
+            background: #ecf0f1;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .designation {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .projects {
+            margin-top: 15px;
+        }
+
+        .project-item {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            border-left: 2px solid #3498db;
+        }
+
+        .technologies {
+            background: #f1f2f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .technologies strong {
+            color: #2c3e50;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #3498db;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: #2980b9;
+        }
+
+        .education-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .certification-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .certification-item:hover {
+            transform: translateX(5px);
+        }
+
+        .certification-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .certification-item a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .company-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .print-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .print-button {
+                display: none;
+            }
+            
+            .experience-item, .certification-item {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Rohit Dilip Devlekar</h1>
+            <div class="contact-info">
+                <p>📍 Virar (E), Tal. Vasai, Dist. Palghar, 401305</p>
+                <p>📞 +91 7798125432 | 📧 <a href="mailto:rohit.devlekar15@gmail.com">rohit.devlekar15@gmail.com</a></p>
+                <p>💼 <a href="https://www.linkedin.com/in/rohit-devlekar" target="_blank">LinkedIn Profile</a></p>
+            </div>
+        </header>
+
+        <main class="content">
+            <section class="section">
+                <h2>Career Objective</h2>
+                <div class="objective">
+                    To work in a professional setting with an organisation that can help me reach my full potential and allow me to apply my creativity and innovative thinking for mutual growth. I am eager to pursue a career in web technology, focusing on Microsoft, DevOps, and Cloud technology.
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div class="company-name">Synergy Technology Services Pvt. Ltd., Mumbai</div>
+                        <div class="duration">Sep 2023 - Present</div>
+                    </div>
+                    <div class="designation">Team Lead</div>
+                    <div class="projects">
+                        <h4>Projects:</h4>
+                        <div class="project-item"><strong>Client - Bajaj Electricals:</strong> BEL Intranet CSR Migration, Bajel Intranet CSR site Development</div>
+                        <div class="project-item"><strong>Client - Otis Elevators, Singapore:</strong> Otis Elevators Dynamic Survey forms, Otis MOD Application</div>
+                        <div class="project-item"><strong>Client - System Architects, Canada:</strong> SOALA (Lottery Application)</div>
+                    </div>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> .NET Core Web API, .NET Core MVC Web App, jQuery, MS SQL, EF Core, PostgreSQL, React JS, Microsoft Azure, GitLab
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div class="company-name">Hitachi Payments Services Pvt. Ltd., Mumbai</div>
+                        <div class="duration">June 2023 - Sep 2023</div>
+                    </div>
+                    <div class="designation">Deputy Manager</div>
+                    <div class="projects">
+                        <h4>Key Projects:</h4>
+                        <div class="project-item"><strong>Prima Application Migration:</strong> Migrated Prima Web Application from Legacy Ruby on Rails to .NET technology stack</div>
+                        <div class="project-item"><strong>VAPT Assessment:</strong> Security assessment of Prima Applications</div>
+                        <div class="project-item"><strong>ICCW (Interoperable-Cardless-Cash-Withdrawal):</strong> Developed in partnership with Hitachi and NPCI for UPI-based cash withdrawal. Responsible for developing mediator socket for ATM-NPCI communication and QR code generation</div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div class="company-name">Pegasus Infocorp Pvt. Ltd., Mumbai</div>
+                        <div class="duration">January 2020 - June 2023</div>
+                    </div>
+                    <div class="designation">Senior Software Engineer</div>
+                    <div class="projects">
+                        <h4>Key Projects:</h4>
+                        <div class="project-item"><strong>PRIMA:</strong> Infrastructure Monitoring Application used by major banks (Axis, BOB, ICCI, SBI, IOB, Indusind, BOI, IDBI, PNB)</div>
+                        <div class="project-item"><strong>Axis Bank Proactive Credit Solution:</strong> Development and Enhancement</div>
+                        <div class="project-item"><strong>Real Time ATM Status Dashboard</strong> for IOB</div>
+                        <div class="project-item"><strong>DC DR Setup</strong> for Prima Servers/Applications</div>
+                    </div>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> Windows Services, Windows Forms, ASP.NET MVC, ASP.NET Web Forms, Web API, MS-SQL Server, MySQL, jQuery, Bootstrap
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div class="company-name">Open Destinations Limited, Panaji</div>
+                        <div class="duration">August 2019 - Dec 2019</div>
+                    </div>
+                    <div class="designation">Senior Software Engineer</div>
+                    <div class="projects">
+                        <div class="project-item"><strong>Travel Studio:</strong> Migrated VB Windows Form legacy applications to modern MVC, Web API technology for travel domain including booking, itinerary design, passenger maintenance modules</div>
+                    </div>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> Windows Form, VB.Net, ASP.NET Web Form, ASP.NET MVC, Web API, MS-SQL Server, Angular, jQuery, Bootstrap
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div class="company-name">Clover InfoTech PVT. LTD., Mumbai</div>
+                        <div class="duration">Jan 2018 - August 2019</div>
+                    </div>
+                    <div class="designation">Software Engineer (Kotak General Insurance)</div>
+                    <div class="projects">
+                        <div class="project-item"><strong>KGI PASS, BPOS:</strong> Developed applications for Motor and Health Insurance products</div>
+                        <div class="project-item"><strong>DC DR Implementation</strong> for KGI PASS Application</div>
+                    </div>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> C#, ASP.NET Web Form, WCF, jQuery, MS-SQL
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-header">
+                        <div class="company-name">Quinnox Consultancy Services, Mumbai</div>
+                        <div class="duration">Sep 2016 - Dec 2017</div>
+                    </div>
+                    <div class="designation">Consultant</div>
+                    <div class="projects">
+                        <div class="project-item"><strong>DHL AMS:</strong> Developed business applications including Supply Chain Management, Daily Collection Report, DHL-KYC, Request For Quote</div>
+                    </div>
+                    <div class="technologies">
+                        <strong>Technologies:</strong> ASP.NET, C#, SQL Server, SSRS, LINQ, WCF, 3-tier Architecture
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming & Frameworks</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">ASP.NET</span>
+                            <span class="skill-tag">ASP.NET MVC</span>
+                            <span class="skill-tag">Web API</span>
+                            <span class="skill-tag">WCF</span>
+                            <span class="skill-tag">Microservices</span>
+                            <span class="skill-tag">RESTful Services</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Web Technologies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">jQuery</span>
+                            <span class="skill-tag">Bootstrap</span>
+                            <span class="skill-tag">JSON</span>
+                            <span class="skill-tag">React JS</span>
+                            <span class="skill-tag">Angular</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Databases</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MS-SQL Server</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Cloud</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Visual Studio</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">TFS</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitLab</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Azure</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>MBA - IT Project Management</h3>
+                    <p><strong>Welingkar Institute</strong> | First Class | Jan 2018 - Jan 2020</p>
+                </div>
+                <div class="education-item">
+                    <h3>B.Sc in Information Technology</h3>
+                    <p><strong>Mumbai University</strong> | 53.54% | 2013</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Certifications & Online Courses</h2>
+                <div class="certification-item">
+                    <strong>JavaScript from Scratch in one hour (2021)</strong><br>
+                    <a href="https://www.udemy.com/certificate/UC-605093de-d572-48e9-b1ef-4495b13a2921/" target="_blank">View Certificate</a>
+                </div>
+                <div class="certification-item">
+                    <strong>Advanced JavaScript</strong><br>
+                    <a href="https://www.udemy.com/certificate/UC-3d2eec24-82d2-4c75-a9df-ee01fd7b2b10/" target="_blank">View Certificate</a>
+                </div>
+                <div class="certification-item">
+                    <strong>.NET Core MVC - The Complete Guide 2023 [E-commerce app]</strong><br>
+                    <a href="https://www.udemy.com/certificate/UC-15c12927-62a4-4b46-93df-a0259191be98/" target="_blank">View Certificate</a>
+                </div>
+                <div class="certification-item">
+                    <strong>Web Services API - Step by Step Beginner Tutorial</strong><br>
+                    <a href="https://www.udemy.com/certificate/UC-e187d65c-c42f-4433-982e-a3637027ba82/" target="_blank">View Certificate</a>
+                </div>
+                <div class="certification-item">
+                    <strong>AWS for Beginners</strong><br>
+                    <a href="https://olympus.mygreatlearning.com/courses/21463/certificate" target="_blank">View Certificate</a>
+                </div>
+                <div class="certification-item">
+                    <strong>.NET Core Microservices - The Complete Guide (.NET 8 MVC)</strong><br>
+                    <a href="https://www.udemy.com/certificate/UC-286bb6e4-a790-4912-9ee0-487d35e505fc" target="_blank">View Certificate</a>
+                </div>
+                <div class="certification-item">
+                    <strong>Complete Guide to Unit Testing in .NET Core (NUnit & XUnit)</strong><br>
+                    <a href="https://www.udemy.com/certificate/UC-92324bfb-2303-4e74-b7eb-7e4bdb4c495f/" target="_blank">View Certificate</a>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Key Strengths</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Communication</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>✓ Exceptional verbal and written communication</li>
+                            <li>✓ Active listening and client empathy</li>
+                            <li>✓ Strong interpersonal skills</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Leadership</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>✓ Team leadership and client management</li>
+                            <li>✓ Cross-functional collaboration</li>
+                            <li>✓ Project timeline management</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <button class="print-button" onclick="window.print()">
+        🖨️ Print CV
+    </button>
+
+    <script>
+        // Add smooth scrolling animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.1s';
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
